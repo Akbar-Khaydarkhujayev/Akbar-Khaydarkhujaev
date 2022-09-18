@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+.form__group {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+}
+.form__field {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #555555;
+  padding: 14px 0 0px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  background-color: transparent !important;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.2rem;
+  cursor: text;
+  top: 15px;
+}
+.form__label {
+  position: absolute;
+  top: -15px;
+  display: block;
+  transition: 0.2s;
+  font-size: 1.2rem;
+  color: #9b9b9b;
+  z-index: -1;
+}
+.form__field:focus {
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #57b846, #26ff00);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: -20px;
+  display: block;
+  transition: 0.2s;
+  font-size: 1.3rem;
+  color: #57b846;
+  font-weight: 500;
+}
+.form__label:focus {
+  position: absolute;
+  top: -20px;
+  display: block;
+  transition: 0.2s;
+  font-size: 1.3rem;
+  color: #57b846;
+  font-weight: 500;
+}
+
+.form__field:required,
+.form__field:invalid {
+  box-shadow: none;
+}
+
+.link-register {
+  bottom: 0;
+}
+
+.invalid {
+  font-family: "Poppins", sans-serif;
+  color: red !important;
+}
+
+.select {
+  cursor: pointer;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  border-bottom: 2px solid #9b9b9b;
+  padding: 14px 0 0px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  background-color: transparent !important;
+  transition: 0.2s;
+  font-size: 1.2rem;
+  color: #555555;
+  margin-top: 30px;
+  font-weight: 600;
+}
+
+.password-control {
+  position: absolute;
+  top: 20px;
+  right: 6px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
+}
+.password-control.view {
+  background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+}

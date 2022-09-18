@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.not-found {
+  margin-top: 80px;
+  color: red;
+  margin-bottom: 30px;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+}
+
+.footer-room-sm {
+  width: 25%;
+}
+
+.footer-room {
+  width: 35%;
+}
+
+.footer-room-lg {
+  width: 40%;
+}
+
+.list-header {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 17px;
+  color: #959eaa;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.list-items {
+  width: max-content;
+  cursor: pointer;
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  color: #000;
+  transition: 0.3s ease-in-out;
+  margin-bottom: 15px;
+}
+
+.list-items:hover {
+  color: #e5351e;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.list-items a {
+  transition: 0.3s ease-in-out;
+  text-decoration: none !important;
+  color: #000 !important;
+}
+
+.list-items a:hover {
+  color: #e5351e !important;
+}
+
+.footer-header {
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.dropdowns {
+  width: max-content;
+  margin: 50px 0;
+}
+
+.list-items i {
+  font-size: 2.3rem;
+  margin: 10px 30px;
+}
+
+.d-flex {
+  margin-bottom: 0;
+}
+
+.padding-left {
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .footer {
+    display: block;
+  }
+  .padding-left {
+    padding-left: 50px;
+  }
+}
+
+.t-d-none {
+  text-decoration: none;
+}
+
+#navbarNavDarkDropdown ul {
+  margin-right: 41px;
+}
+
+.products-wrapper {
+  width: 100%;
+  padding: 40px 0;
+  height: max-content;
+}
+
+.products {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.loading {
+  width: 50px;
+  height: 50px;
+  border: 8px solid black;
+  border-bottom: 8px solid white;
+  border-radius: 50%;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  margin: 250px auto;
+}
+
+@keyframes rotate {
+  from {
+    transform: none;
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.badge.even-larger-badge {
+  font-size: 1em;
+}
+
+.add-to-cart {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-header {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: none;
+}
+
+.h-100 {
+  max-height: 700px;
+}
+
+.text-shadow {
+  text-shadow: 0px 0px 1px black;
+}
+
+.bottom-shadow {
+  -webkit-box-shadow: 0 5px 6px -6px black;
+  -moz-box-shadow: 0 5px 6px -6px black;
+  box-shadow: 0 5px 6px -6px black;
+}
+
+.product-wrapper {
+  height: 100vh;
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-family: "Poppins", sans-serif;
+}
+
+.product-image img {
+  width: 300px;
+  height: 400px;
+}
+
+.v-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+  padding-left: 100px;
+}
