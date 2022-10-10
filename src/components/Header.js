@@ -1,13 +1,30 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { category } from "../features/ChoosenCategory";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const cart = useSelector((state) => state.cart.value.products);
+
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark bg-dark position-fixed"
       style={{ zIndex: "99", width: "100%" }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <button
+          className="btn btn-outline-light"
+          style={{ marginRight: "40px", marginLeft: "10px" }}
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <i className="fa fa-chevron-left" aria-hidden="true"></i> Back
+        </button>
+        <a className="navbar-brand" href="##">
           E-commerce
         </a>
         <button
@@ -30,7 +47,7 @@ const Header = () => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="#"
+                href="##"
                 id="navbarDarkDropdownMenuLink"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -42,25 +59,50 @@ const Header = () => {
                 className="dropdown-menu dropdown-menu-dark"
                 aria-labelledby="navbarDarkDropdownMenuLink"
               >
-                <li>
-                  <a className="dropdown-item" href="#">
+                <li
+                  onClick={() => {
+                    dispatch(category({ sortBy: "AllProducts" }));
+                  }}
+                >
+                  <Link to="/AllProducts" className="dropdown-item">
+                    All Products
+                  </Link>
+                </li>
+                <li
+                  onClick={() => {
+                    dispatch(category({ sortBy: "men's clothing" }));
+                  }}
+                >
+                  <Link to="/MensClothing" className="dropdown-item">
                     Men's clothing
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a className="dropdown-item" href="#">
+                <li
+                  onClick={() => {
+                    dispatch(category({ sortBy: "women's clothing" }));
+                  }}
+                >
+                  <Link to="/WomensClothing" className="dropdown-item">
                     Women's clothing
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a className="dropdown-item" href="#">
+                <li
+                  onClick={() => {
+                    dispatch(category({ sortBy: "electronics" }));
+                  }}
+                >
+                  <Link to="/Electronics" className="dropdown-item">
                     Electronics
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a className="dropdown-item" href="#">
+                <li
+                  onClick={() => {
+                    dispatch(category({ sortBy: "jewelery" }));
+                  }}
+                >
+                  <Link to="/Jewelery" className="dropdown-item">
                     Jewelery
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -69,65 +111,7 @@ const Header = () => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDarkDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Theme
-              </a>
-              <ul
-                className="dropdown-menu dropdown-menu-dark"
-                aria-labelledby="navbarDarkDropdownMenuLink"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Light
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Dark
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <ul className="navbar-nav">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDarkDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="fa fa-language" aria-hidden="true"></i> Language
-              </a>
-              <ul
-                className="dropdown-menu dropdown-menu-dark"
-                aria-labelledby="navbarDarkDropdownMenuLink"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    English
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Russian
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <ul className="navbar-nav">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
+                href="##"
                 id="navbarDarkDropdownMenuLink"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -152,12 +136,22 @@ const Header = () => {
               </ul>
             </li>
           </ul>
-          <Link to="/Cart">
+          <Link to="/">
             <button
               className="btn btn-outline-light"
+              style={{ marginRight: "30px" }}
+            >
+              <i className="fa fa-home" aria-hidden="true"></i> Home Page
+            </button>
+          </Link>
+          <Link to="/Cart">
+            <button
+              className="btn btn-outline-light btn-to-hover"
               style={{ marginRight: "20px" }}
             >
-              <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+              <i className="fa fa-shopping-cart" aria-hidden="true"></i>{" "}
+              Cart&nbsp;&nbsp;&nbsp;
+              <span className="badge badge-light">{cart.length}</span>
             </button>
           </Link>
         </div>

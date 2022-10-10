@@ -4,6 +4,7 @@ import logo from "../assets/logo.jpg";
 import Input from "../components/Input";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import Back from "../components/Back";
 
 const Login = () => {
   const validation = Yup.object({
@@ -29,6 +30,7 @@ const Login = () => {
 
   return (
     <div className="block">
+      <Back />
       <h1 className="block-welcome">Welcome</h1>
       <div className="imgPlace">
         <img src={logo} alt="Logo" className="logo"></img>

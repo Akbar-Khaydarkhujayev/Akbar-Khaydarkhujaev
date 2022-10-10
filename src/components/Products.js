@@ -1,25 +1,39 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getProductId } from "../features/ChoosenProduct";
+import { AddToCart } from "../features/CartProducts";
 import Loading from "./Loading";
+import { useSelector } from "react-redux";
+import { AlertDanger, AlertSuccess } from "./Alert";
 
-const Products = () => {
+const Products = (props) => {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState(data);
-  const [loading, setLoading] = useState(false);
+  const [alertD, setAlertD] = useState(false);
+  const [alertS, setAlertS] = useState(false);
+  const [loading, setLoading] = useState(true);
   let componentMounted = true;
+  const navigate = useNavigate();
 
+  const cart = useSelector((state) => state.cart.value);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch("https://fakestoreapi.com/products");
-      if (componentMounted) {
-        setData(await response.clone().json());
-        setFilter(await response.json());
-        setLoading(false);
+      if (props.category === "AllProducts") {
+        const response = await fetch("https://fakestoreapi.com/products");
+        if (componentMounted) {
+          setData(await response.json());
+          setLoading(false);
+        }
+      } else {
+        const link = `https://fakestoreapi.com/products/category/${props.category}`;
+        const response = await fetch(link);
+        if (componentMounted) {
+          setData(await response.json());
+          setLoading(false);
+        }
       }
 
       return () => {
@@ -32,13 +46,14 @@ const Products = () => {
   const ShowProducts = () => {
     return (
       <>
-        {filter.map((product) => {
+        {data.map((product) => {
           return (
-            <Link to="/AboutProduct" key={product.id}>
+            <div key={product.id} className="position-relative m-3">
               <div
-                className="card"
+                className="card card-shadow"
                 style={{ width: "250px", marginTop: "30px" }}
                 onClick={() => {
+                  navigate("/AboutProduct");
                   dispatch(getProductId({ id: product.id }));
                 }}
               >
@@ -57,14 +72,37 @@ const Products = () => {
                       {product.price} $
                     </span>
                   </div>
-                  <div className="mt-3">
-                    <button className="btn btn-outline-dark">
-                      Add to Cart
-                    </button>
-                  </div>
                 </div>
               </div>
-            </Link>
+              <button
+                className="btn btn-outline-dark add-btn"
+                onClick={() => {
+                  const cartProd = [...cart.products];
+                  let check = true;
+                  for (let i = 0; i < cartProd.length; i++) {
+                    if (cartProd[i].id === product.id) {
+                      check = false;
+                    }
+                  }
+                  if (check === true || cartProd.length === 0) {
+                    setAlertS(true);
+                    cartProd.push(product);
+                    dispatch(AddToCart({ products: cartProd }));
+                    check = false;
+                    setTimeout(() => {
+                      setAlertS(false);
+                    }, 3000);
+                  } else {
+                    setAlertD(true);
+                    setTimeout(() => {
+                      setAlertD(false);
+                    }, 3000);
+                  }
+                }}
+              >
+                Add to Cart
+              </button>
+            </div>
           );
         })}
       </>
@@ -72,10 +110,16 @@ const Products = () => {
   };
 
   return (
-    <div className="products-wrapper">
-      <h1> Products</h1>
-      <div className="products">{loading ? <Loading /> : <ShowProducts />}</div>
-    </div>
+    <>
+      <AlertDanger show={alertD} />
+      <AlertSuccess show={alertS} />
+      <div className="products-wrapper">
+        <h1> Products</h1>
+        <div className="products">
+          {loading ? <Loading /> : <ShowProducts />}
+        </div>
+      </div>
+    </>
   );
 };
 

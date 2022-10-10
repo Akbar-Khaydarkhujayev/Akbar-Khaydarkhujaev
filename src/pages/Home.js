@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <Header />
       <Carousel />
-      <Products />
+      <Products category="AllProducts" />
       <Footer />
     </>
   );

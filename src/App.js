@@ -6,6 +6,11 @@ import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import AboutProduct from "./pages/AboutProduct";
+import AllProducts from "./pages/AllProducts";
+import MensClothing from "./pages/MensClothing";
+import Jewelery from "./pages/Jewelery";
+import Electronics from "./pages/Electronics";
+import WomensClothing from "./pages/WomensClothing";
 
 function App() {
   return (
@@ -21,6 +26,23 @@ function App() {
         <Route
           path="/AboutProduct"
           element={<AboutProduct></AboutProduct>}
+        ></Route>
+        <Route
+          path="/AllProducts"
+          element={<AllProducts></AllProducts>}
+        ></Route>
+        <Route
+          path="/MensClothing"
+          element={<MensClothing></MensClothing>}
+        ></Route>
+        <Route path="/Jewelery" element={<Jewelery></Jewelery>}></Route>
+        <Route
+          path="/Electronics"
+          element={<Electronics></Electronics>}
+        ></Route>
+        <Route
+          path="/WomensClothing"
+          element={<WomensClothing></WomensClothing>}
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

@@ -9,12 +9,16 @@ import { BrowserRouter } from "react-router-dom";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import productReducer from "./features/ChoosenProduct";
+import categoryReducer from "./features/ChoosenCategory";
+import cartReducer from "./features/CartProducts";
 import "./formStyle.css";
 import "./index.css";
 
 const store = configureStore({
   reducer: {
     product: productReducer,
+    category: categoryReducer,
+    cart: cartReducer,
   },
 });
 

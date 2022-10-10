@@ -1,10 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStateValue = { id: 0 };
-
 export const productSlice = createSlice({
   name: "product",
-  initialState: { value: initialStateValue },
+  initialState: { value: { id: 1 } },
   reducers: {
     getProductId: (state, action) => {
       state.value = action.payload;

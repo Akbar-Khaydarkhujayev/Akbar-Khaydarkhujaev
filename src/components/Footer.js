@@ -11,8 +11,9 @@ const Footer = () => {
             <div className="footer-header">
               E-commerce <br></br> by Akbar Khaydarkhujaev
             </div>
+            {/* To comlete in future:
             <LanguageDropdown />
-            <ThemeDropdown />
+            <ThemeDropdown /> */}
           </div>
           <div className="footer-room-sm">
             <ul>
