@@ -5,7 +5,7 @@ const Back = () => {
 
   return (
     <button
-      className="btn btn-outline-success position-fixed back-btn"
+      className="btn btn-outline-success p-fixed back-btn"
       onClick={() => {
         navigate(-1);
       }}

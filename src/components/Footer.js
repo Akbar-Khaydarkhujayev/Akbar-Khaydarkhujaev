@@ -11,19 +11,16 @@ const Footer = () => {
             <div className="footer-header">
               E-commerce <br></br> by Akbar Khaydarkhujaev
             </div>
-            {/* To comlete in future:
-            <LanguageDropdown />
-            <ThemeDropdown /> */}
           </div>
           <div className="footer-room-sm">
-            <ul>
+            <ul className="ul-res">
               <li className="list-header">Categories</li>
               <li className="list-items">Men's clothing</li>
               <li className="list-items">Women's clothing</li>
               <li className="list-items">Electronics</li>
               <li className="list-items">Jewelery</li>
             </ul>
-            <ul>
+            <ul className="ul-res">
               <li className="list-header">More</li>
               <Link to="/Cart" className="t-d-none">
                 <li className="list-items">Go to Cart</li>
@@ -37,7 +34,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="footer-room">
-            <ul>
+            <ul className="ul-res">
               <li className="list-header">
                 Deployed Projects (Click any to visit site)
               </li>
@@ -74,12 +71,12 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-            <ul>
+            <ul className="ul-res">
               <li className="list-header">Contacts</li>
               <li className="list-items">+998 99 830 30 17</li>
               <li className="list-items">akbarboss91@gmail.com</li>
             </ul>
-            <ul className="d-flex">
+            <ul className="d-flex ul-res">
               <li className="list-items">
                 <a target="_blank" href="https://t.me/AkbarBoSs91">
                   <i className="fa fa-telegram" aria-hidden="true"></i>
