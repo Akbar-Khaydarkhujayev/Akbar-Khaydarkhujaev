@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getProductId } from "../features/ChoosenProduct";
-import { AddToCart } from "../features/CartProducts";
+import { getProductId } from "../redux/ChoosenProduct";
+import { AddToCart } from "../redux/CartProducts";
 import Loading from "./Loading";
 import { useSelector } from "react-redux";
 import { AlertDanger, AlertSuccess } from "./Alert";
@@ -12,7 +12,6 @@ const Products = (props) => {
   const [alertD, setAlertD] = useState(false);
   const [alertS, setAlertS] = useState(false);
   const [loading, setLoading] = useState(true);
-  let componentMounted = true;
   const navigate = useNavigate();
 
   const cart = useSelector((state) => state.cart.value);
@@ -21,24 +20,13 @@ const Products = (props) => {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      if (props.category === "AllProducts") {
-        const response = await fetch("https://fakestoreapi.com/products");
-        if (componentMounted) {
-          setData(await response.json());
-          setLoading(false);
-        }
-      } else {
-        const link = `https://fakestoreapi.com/products/category/${props.category}`;
-        const response = await fetch(link);
-        if (componentMounted) {
-          setData(await response.json());
-          setLoading(false);
-        }
-      }
-
-      return () => {
-        componentMounted = false;
-      };
+      const link =
+        props.category === "AllProducts"
+          ? "https://fakestoreapi.com/products"
+          : `https://fakestoreapi.com/products/category/${props.category}`;
+      const response = await fetch(link);
+      setData(await response.json());
+      setLoading(false);
     };
     getProducts();
   }, []);

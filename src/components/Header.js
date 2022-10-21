@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { category } from "../features/ChoosenCategory";
+import { category } from "../redux/ChoosenCategory";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 

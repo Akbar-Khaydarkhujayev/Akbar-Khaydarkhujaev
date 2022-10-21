@@ -340,6 +340,12 @@ li {
   position: fixed;
 }
 
+.leaflet-container {
+  margin-top: 20px;
+  width: 85%;
+  height: 250px;
+}
+
 @media (max-width: 820px) {
   .carousel {
     padding-top: 56px;
@@ -420,5 +426,9 @@ li {
     top: -30px;
     left: -120px;
     position: relative !important;
+  }
+
+  .leaflet-container {
+    margin: 20px auto 0;
   }
 }

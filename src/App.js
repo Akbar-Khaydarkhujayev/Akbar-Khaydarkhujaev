@@ -16,35 +16,17 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="" element={<Home></Home>}></Route>
-        <Route path="/Login" element={<Login></Login>}></Route>
-        <Route
-          path="/Registration"
-          element={<Registration></Registration>}
-        ></Route>
-        <Route path="/Cart" element={<Cart></Cart>}></Route>
-        <Route
-          path="/AboutProduct"
-          element={<AboutProduct></AboutProduct>}
-        ></Route>
-        <Route
-          path="/AllProducts"
-          element={<AllProducts></AllProducts>}
-        ></Route>
-        <Route
-          path="/MensClothing"
-          element={<MensClothing></MensClothing>}
-        ></Route>
-        <Route path="/Jewelery" element={<Jewelery></Jewelery>}></Route>
-        <Route
-          path="/Electronics"
-          element={<Electronics></Electronics>}
-        ></Route>
-        <Route
-          path="/WomensClothing"
-          element={<WomensClothing></WomensClothing>}
-        ></Route>
-        <Route path="*" element={<NotFound></NotFound>}></Route>
+        <Route path="" element={<Home />}></Route>
+        <Route path="/Login" element={<Login />}></Route>
+        <Route path="/Registration" element={<Registration />}></Route>
+        <Route path="/Cart" element={<Cart />}></Route>
+        <Route path="/AboutProduct" element={<AboutProduct />}></Route>
+        <Route path="/AllProducts" element={<AllProducts />}></Route>
+        <Route path="/MensClothing" element={<MensClothing />}></Route>
+        <Route path="/Jewelery" element={<Jewelery />}></Route>
+        <Route path="/Electronics" element={<Electronics />}></Route>
+        <Route path="/WomensClothing" element={<WomensClothing />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </div>
   );

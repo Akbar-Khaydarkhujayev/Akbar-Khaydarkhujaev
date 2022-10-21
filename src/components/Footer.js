@@ -1,5 +1,5 @@
-import { LanguageDropdown, ThemeDropdown } from "./Dropdowns";
 import { Link } from "react-router-dom";
+import Map from "./Leaflet-Map";
 
 const Footer = () => {
   return (
@@ -11,6 +11,7 @@ const Footer = () => {
             <div className="footer-header">
               E-commerce <br></br> by Akbar Khaydarkhujaev
             </div>
+            <Map />
           </div>
           <div className="footer-room-sm">
             <ul className="ul-res">
@@ -41,6 +42,7 @@ const Footer = () => {
               <li className="list-items">
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://to-do-list-react-app-js.herokuapp.com/"
                 >
                   To Do List on React
@@ -49,6 +51,7 @@ const Footer = () => {
               <li className="list-items">
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://draggable-todolist-react-app.herokuapp.com/"
                 >
                   To Do List with Draggable Elements on React
@@ -56,6 +59,7 @@ const Footer = () => {
               </li>
               <li className="list-items">
                 <a
+                  rel="noopener noreferrer"
                   target="_blank"
                   href="https://movie-react-app-js.herokuapp.com/"
                 >
@@ -64,6 +68,7 @@ const Footer = () => {
               </li>
               <li className="list-items">
                 <a
+                  rel="noopener noreferrer"
                   target="_blank"
                   href="https://snake-game-pure-js.netlify.app/"
                 >
@@ -78,13 +83,18 @@ const Footer = () => {
             </ul>
             <ul className="d-flex ul-res">
               <li className="list-items">
-                <a target="_blank" href="https://t.me/AkbarBoSs91">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://t.me/AkbarBoSs91"
+                >
                   <i className="fa fa-telegram" aria-hidden="true"></i>
                 </a>
               </li>
               <li className="list-items">
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://github.com/Akbar-Khaydarkhujayev"
                 >
                   <i className="fa fa-github" aria-hidden="true"></i>
@@ -92,6 +102,7 @@ const Footer = () => {
               </li>
               <li className="list-items">
                 <a
+                  rel="noopener noreferrer"
                   target="_blank"
                   href="https://www.instagram.com/invites/contact/?i=9ue464ljk4z8&utm_content=jsm065p"
                 >

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import { useDispatch } from "react-redux";
-import { AddToCart } from "../features/CartProducts";
+import { AddToCart } from "../redux/CartProducts";
 import { AlertDanger, AlertSuccess } from "../components/Alert";
 
 const AboutProduct = () => {
@@ -16,21 +16,14 @@ const AboutProduct = () => {
   const [loading, setLoading] = useState(true);
   const [alertD, setAlertD] = useState(false);
   const [alertS, setAlertS] = useState(false);
-  let componentMounted = true;
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const getProducts = async () => {
       setLoading(true);
       const response = await fetch("https://fakestoreapi.com/products");
-      if (componentMounted) {
-        setData(await response.json());
-        setLoading(false);
-      }
-
-      return () => {
-        componentMounted = false;
-      };
+      setData(await response.json());
+      setLoading(false);
     };
     getProducts();
   }, []);
@@ -40,7 +33,7 @@ const AboutProduct = () => {
     return (
       <>
         <div className="product-image">
-          <img src={filter[0].image} />
+          <img src={filter[0].image} alt={filter[0].title} />
         </div>
         <div className="v-center">
           <h1>{filter[0].title}</h1>

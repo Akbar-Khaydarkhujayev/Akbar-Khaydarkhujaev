@@ -13,7 +13,9 @@ const Input = (props) => {
           {...props}
           autoComplete="off"
         />
-        <a href="##" className="password-control" onClick={props.onHide}></a>
+        <a href="##" className="password-control" onClick={props.onHide}>
+          <i />
+        </a>
         <label htmlFor={props.name} className="form__label">
           {props.label}
         </label>

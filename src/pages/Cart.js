@@ -2,7 +2,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { AddToCart } from "../features/CartProducts";
+import { AddToCart } from "../redux/CartProducts";
 import { useDispatch } from "react-redux";
 
 const Cart = () => {
@@ -22,7 +22,7 @@ const Cart = () => {
     const getPrice = () => {
       let overAllPrice = 0;
       cart.map((prod) => {
-        overAllPrice += prod.price;
+        return (overAllPrice += prod.price);
       });
       return overAllPrice;
     };

@@ -21,7 +21,7 @@ const Registration = () => {
       .required("E-mail is Required"),
     phoneNumber: Yup.string()
       .max(14, "Wrong phone Number (ex:+998 901234567)")
-      .matches(/(\+998\ )[0-9]{9}/, "Wrong phone Number (Ex:+998 901234567)")
+      .matches(/(\+998 )[0-9]{9}/, "Wrong phone Number (Ex:+998 901234567)")
       .required("Phone Number is Requierd"),
     city: Yup.string().required("Choose City"),
     gender: Yup.string().required("Choose your Gender"),
@@ -35,7 +35,7 @@ const Registration = () => {
     password: Yup.string()
       .max(16, "Must be no more than 16 charachters")
       .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
         "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
       )
       .required("Password is Required"),
